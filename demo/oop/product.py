@@ -18,8 +18,8 @@ class Product:
         self.name = name
         self.price = price
 
-    # Methods
-    def net_price(self):
+    @property
+    def netprice(self):
         return self.price + self.price * Product.taxrate / 100
 
 
@@ -29,7 +29,7 @@ print(p.name, p.price)
 p1 = Product("Bose HeadPhones", 25000)
 # Product.taxrate = 20
 Product.set_taxrate(17)
-print(p1.net_price())
+print(p1.netprice)    # Property
 print(p1.__dict__)
 
 p2 = Product("iPhone 11")

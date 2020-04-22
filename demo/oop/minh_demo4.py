@@ -3,16 +3,13 @@ class A:
         print("A")
 
 
-class B:
+class B(A):
     def m1(self):
         print("B")
 
 
 class C(A, B):
     pass
-    # def m1(self):
-    #     print("C")
 
 
-obj = C()
-obj.m1()
+print(C.mro())

@@ -1,3 +1,12 @@
+class InvalidPriceError(Exception):
+     def __init__(self, msg="Invalid Price"):
+         self.message = msg
+
+     def __str__(self):
+         return self.message
+
+
+
 class Product:
     # class attributes
     taxrate = 15
@@ -16,11 +25,19 @@ class Product:
     def __init__(self, name, price=0):
         # Object Attributes
         self.name = name
+        if price < 0:
+            raise InvalidPriceError("Price cannot be negative!")
+
         self.price = price
 
     @property
     def netprice(self):
         return self.price + self.price * Product.taxrate / 100
+
+try:
+    p = Product("Abc", -100)
+except Exception as ex:
+    print(ex)
 
 
 p = Product.create("Dummy")  # Call classmethod

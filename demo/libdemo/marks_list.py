@@ -11,3 +11,5 @@ with open("marks.txt", "rt") as f:
 
 for name, total in sorted(students.items()):
     print(f"{name:10} {total}")
+
+

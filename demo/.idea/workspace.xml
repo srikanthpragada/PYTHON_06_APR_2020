@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41c4d4c5-6530-45d0-a406-e6caa949984d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/db/add_employee.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/delete_employee.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/list_employees.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sql.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/update_employee.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libdemo/list_st_batches.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libdemo/list_st_items.py" beforeDir="false" afterPath="$PROJECT_DIR$/libdemo/list_st_items.py" afterDir="false" />
-    </list>
+    <list default="true" id="41c4d4c5-6530-45d0-a406-e6caa949984d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +172,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-10" />
     <option name="width" value="1935" />
     <option name="height" value="1040" />
@@ -377,7 +368,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24617738" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24617738" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33180428" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

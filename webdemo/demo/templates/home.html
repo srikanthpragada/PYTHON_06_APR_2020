@@ -6,16 +6,14 @@
 </head>
 <body>
 
-<h1>Demo Application</h1>
+<h1>{{title}}</h1>
 
 Welcome to Demo Application which demonstrates the following concepts of Django:
 
 <ul>
-    <li>Templates</li>
-    <li>Forms</li>
-    <li>ORM</li>
-    <li>AJAX</li>
-    <li>REST</li>
+   {% for topic in topics %}
+      <li>{{topic | upper }}</li>
+   {% endfor %}
 </ul>
 
 </body>

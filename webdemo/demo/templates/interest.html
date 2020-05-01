@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interest Calculation</title>
+</head>
+<body>
+<h1>Interest Calculation</h1>
+
+<form>
+    Amount <br/>
+    <input type="number" name="amount" step="any" value="{{amount}}" required/>
+    <p></p>
+    Interest Rate<br/>
+    <input type="number" step="any" name="rate" value="{{rate}}" required/>
+    <p></p>
+    <input type="submit" value="Calculate"/>
+</form>
+{% if interest %}
+   <h2>Interest = {{interest | floatformat:2}} </h2>
+{% endif %}
+</body>
+</html>

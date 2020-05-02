@@ -15,9 +15,9 @@ def home(request):
 
 
 def interest_calculation(request):
-    if 'amount' in request.GET:  # data is present, so process it
-        amount = float(request.GET['amount'])
-        rate = float(request.GET['rate'])
+    if 'amount' in request.POST:  # data is present, so process it
+        amount = float(request.POST['amount'])
+        rate = float(request.POST['rate'])
         interest = amount * rate / 100
         return render(request, 'interest.html',
                       {'amount': amount, 'rate': rate, 'interest': interest})

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+</head>
+<body>
+
+<h1>Add Employee</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <p></p>
+    <input type="submit" value="Add Employee"/>
+</form>
+<p></p>
+<div style="color:red">{{message}}</div>
+
+</body>
+</html>

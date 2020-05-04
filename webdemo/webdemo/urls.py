@@ -23,5 +23,6 @@ urlpatterns = [
     path("hello/", views.hello),
     path("greet/", views.greet),
     path("demo/", include('demo.urls')),
+    path("books/", include('books.urls')),
 
 ]

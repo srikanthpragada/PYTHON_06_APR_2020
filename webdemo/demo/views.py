@@ -6,7 +6,7 @@ from django.http import HttpResponse
 
 def home(request):
     return render(request,  # request object
-                  'home.html',  # Template
+                  'summary.html',  # Template
                   {
                       'title': 'Django Application',
                       'topics': ['Templates', 'Forms', 'ORM', 'AJAX', 'REST']

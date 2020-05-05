@@ -10,12 +10,12 @@ import datetime
 def book_home(request):
     summary = Book.objects.all().aggregate(count=Count('id'),
                                            avgprice=Avg('price'))
-    return render(request, 'home.html', {'summary': summary})
+    return render(request, 'books/summary.html', {'summary': summary})
 
 
 def book_list(request):
     books = Book.objects.all()
-    return render(request, 'list.html', {'books': books})
+    return render(request, 'books/list.html', {'books': books})
 
 
 def book_delete(request, id):
@@ -24,41 +24,43 @@ def book_delete(request, id):
         book.delete()
         return redirect("/books/list")
     except ObjectDoesNotExist:
-        return render(request, 'delete.html', {'msg': 'Book Id Not Found!'})
+        return render(request, 'books/delete.html', {'msg': 'Book Id Not Found!'})
     except Exception as ex:
         print(ex)  # Goes to server window
-        return render(request, 'delete.html', {'msg': 'Book could not be deleted!'})
+        return render(request, 'books/delete.html',
+                      {'msg': 'Book could not be deleted!'})
 
 
 def book_add(request):
     if request.method == "GET":
         form = BookForm()
-        return render(request, 'add.html', {'form': form})
+        return render(request, 'books/add.html', {'form': form})
     else:  # POST
         form = BookForm(request.POST)   # bind form with post data
         if form.is_valid():
             form.save()  # Add book to table
             return redirect("/books/list")
         else:
-            return render(request, 'add.html', {'form': form})
+            return render(request, 'books/add.html', {'form': form})
 
 
 def book_edit(request, id):
     if request.method == "GET":
         try:
             book = Book.objects.get(id=id)   # Take data from DB
-            form = BookForm(instance=book)
-            return render(request, 'edit.html', {'form': form})
+            form = BookForm(instance=book)   # Bind data from Db to form
+            return render(request, 'books/edit.html', {'form': form})
         except ObjectDoesNotExist:
-            return render(request, 'edit.html', {'msg': 'Book Id Not Found!'})
+            return render(request, 'books/edit.html', {'msg': 'Book Id Not Found!'})
     else:  # POST
         book = Book.objects.get(id=id)
+        # Replace data taken from DB with data taken from request parameters
         form = BookForm(instance=book, data=request.POST)
         if form.is_valid():
             form.save()  # Update
             return redirect("/books/list")
         else:
-            return render(request, 'edit.html', {'form': form})
+            return render(request, 'books/edit.html', {'form': form})
 
 
 def book_search(request):
@@ -68,7 +70,7 @@ def book_search(request):
     else:
         title = ''
 
-    return render(request, 'search.html', {'title': title})
+    return render(request, 'books/search.html', {'title': title})
 
 
 def book_do_search(request):

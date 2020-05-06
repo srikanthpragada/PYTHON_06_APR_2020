@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 from .models import Book
 
 
+# Class based views
+
 class HelloView(TemplateView):
     template_name = 'hello.html'
 

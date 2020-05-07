@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from books.models import Book
 
 
-# To perform JSON Serialization - Book to JSON
+# To perform JSON Serialization and Deserialization - Book to JSON and JSON to Book
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
@@ -19,10 +19,10 @@ def process_books(request):
         serializer = BookSerializer(books, many=True)
         return Response(serializer.data)
     else:  # Post
-        book = BookSerializer(data=request.data)
+        book = BookSerializer(data=request.data)  # Convert JSON to Book object
         if book.is_valid():
             book.save()  # insert into table
-            return Response(book.data)
+            return Response(book.data)   # Book to JSON
         else:
             return Response(book.errors, status=400)  # bad request
 
@@ -35,7 +35,7 @@ def process_one_book(request, id):
         return Response(status=404)  # not found
 
     if request.method == "GET":
-        serializer = BookSerializer(book)
+        serializer = BookSerializer(book)  # Book to JSON
         return Response(serializer.data)
     elif request.method == "DELETE":  # DELETE
         book.delete()
@@ -43,7 +43,11 @@ def process_one_book(request, id):
     else:  # PUT
         price = request.POST['price']
         book.price = price
-        book.save()  # Update table in DB
-        serializer = BookSerializer(book)
-        return Response(serializer.data)
+        try:
+            book.save()  # Update table in DB
+            serializer = BookSerializer(book)
+            return Response(serializer.data)
+        except Exception as ex:
+            print('Error : ' , ex)
+            return Response(status=400)
 
